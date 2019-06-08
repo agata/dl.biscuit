@@ -2,7 +2,12 @@ var updateDownloadButton = function() {
     var patterns = {
         'OS X': /^.+[.]dmg$/,
         'Windows': /^.+[.]exe$/,
-        'Linux': /^.+[.]AppImage$/
+        'Windows XP': /^.+[.]exe$/,
+        'Ubuntu': /^.+[.]AppImage$/,
+        'Debian': /^.+[.]AppImage$/,
+        'Fedora': /^.+[.]AppImage$/,
+        'Red Hat': /^.+[.]AppImage$/,
+        'SuSE': /^.+[.]AppImage$/
     }
     var linkElem = document.getElementById('download-link');
     var textElem = document.getElementById('download-text');
@@ -35,7 +40,7 @@ var updateDownloadButton = function() {
                 var newText = text
                     .replace('Biscuit', 'Biscuit for ' + platform.os.family)
                     .replace('v1.0.0', version)
-                    .replace('dmg', ext);
+                    .replace('exe', ext);
                 textElem.innerText = newText;
             }
         } else {
